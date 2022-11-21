@@ -1,0 +1,6 @@
+shodan
+progress
+prettytable
+censys
+termcolor
+nslookup
