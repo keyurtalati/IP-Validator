@@ -75,8 +75,8 @@ def shodan_search(ip):
                         #print("["+str(n)+"/"+str(total_ip)+"] : "+str(ip)+colored(" : Valid from Shodan","green"))
                         table1.add_row([colored(str(n)+"/"+str(total_ip),"white"),str(ip),colored("Valid","green"),colored("Shodan","green")])
                         return True
-                    else:
-                        return False
+                    #else:
+                       # return False
     except shodan.APIError as error :   
         pass    
     #    print("["+str(n)+"/"+str(total_ip)+"] : "+str(ip)+colored(" : ","yellow")+colored(error,"yellow"))
@@ -95,8 +95,8 @@ def censys_search(ip):
                     #print("["+str(n)+"/"+str(total_ip)+"] : "+str(ip)+colored(" : Valid from Censys","green"))
                     table1.add_row([colored(str(n)+"/"+str(total_ip),"white"),str(ip),colored("Valid","green"),colored("Censys","green")])
                     return True
-                else:
-                    return False
+                #else:
+                 #   return False
                 
 def DNS_Recon(ip):
     if ip in valid_dns_ip:
