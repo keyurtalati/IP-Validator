@@ -5,7 +5,7 @@ from prettytable.colortable import ColorTable, Themes
 from censys.search import CensysHosts
 from termcolor import colored,cprint
 from nslookup import Nslookup
-api = Shodan('Shodan-API-key')
+api = Shodan('Insert Your Key Here')
 table1 = ColorTable(['Number','IP Address','Result','Source'],theme=Themes.OCEAN)
 table1.align["Line"] = "l"
 input_file=open("ips.txt","r")
@@ -36,10 +36,10 @@ with open(r'domain_for_dns.txt', 'r',encoding="utf8") as fp:
 list_of_input_domain=[*set(list_of_input_domain)]
 valid_dns_ip=[*set(valid_dns_ip)]
 valid_dns_ip.remove("")
-print(colored("List of Valid IP from NSlookup and DNS lookup : ","blue"))
-print(str(valid_dns_ip)+"\n")
-print(colored("List of input domain / DNS : ","blue"))
-print(str(list_of_input_domain)+"\n")
+#print(colored("List of Valid IP from NSlookup and DNS lookup : ","blue"))
+#print(str(valid_dns_ip)+"\n")
+#print(colored("List of input domain / DNS : ","blue"))
+#print(str(list_of_input_domain)+"\n")
 
 #######################
 
@@ -51,7 +51,7 @@ with open(r'list_of_keyword.txt', 'r',encoding="utf8") as fp:
             for row in lines:
                 row=row.replace("\n", "")
                 list_of_valid_keyword.append(row)
-print(colored("List of Keywords to search : ","blue"))
+#print(colored("List of Keywords to search : ","blue"))
 print(str(list_of_valid_keyword)+"\n")
 print("-------------------------------------------------\n")
 
@@ -76,7 +76,7 @@ def shodan_search(ip):
                         table1.add_row([colored(str(n)+"/"+str(total_ip),"white"),str(ip),colored("Valid","green"),colored("Shodan","green")])
                         return True
                     #else:
-                       # return False
+                     #   return False
     except shodan.APIError as error :   
         pass    
     #    print("["+str(n)+"/"+str(total_ip)+"] : "+str(ip)+colored(" : ","yellow")+colored(error,"yellow"))
@@ -96,7 +96,7 @@ def censys_search(ip):
                     table1.add_row([colored(str(n)+"/"+str(total_ip),"white"),str(ip),colored("Valid","green"),colored("Censys","green")])
                     return True
                 #else:
-                 #   return False
+                #    return False
                 
 def DNS_Recon(ip):
     if ip in valid_dns_ip:
